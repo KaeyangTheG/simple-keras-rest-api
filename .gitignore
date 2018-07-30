@@ -198,5 +198,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-
+# model
+*.h5
 # End of https://www.gitignore.io/api/python,pycharm,macos
