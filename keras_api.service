@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve simple-keras-rest-api
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/simple-keras-rest-api
+Environment="PATH=/home/ubuntu/simple-keras-rest-api/kerasenv/bin"
+ExecStart=/home/ubuntu/simple-keras-rest-api/kerasenv/bin/gunicorn --workers 3 --bind unix:keras_api.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
